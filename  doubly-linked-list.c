@@ -22,6 +22,15 @@ void remove_node(node_t **head, node_t *node_to_remove){
 if(*head==node_to_remove){
     *head=node_to_remove->next;
     return;
+}else{
+    node_t *temp = *head;
+    while(temp != NULL && temp->next != node_to_remove){
+     temp = temp->next;  
+    }
+    if(temp == NULL)return;
+    temp->next = node_to_remove->next;
+    node_to_remove->next = NULL;
+
 }
 return;
 }
